@@ -1,0 +1,19 @@
+## Interface: 120000, 120001
+## Version: 1.0
+
+## Title: Profession Knowledge Tracker
+## Title-deDE: Berufswissensquellen Tracker
+## Category: Professions
+## Category-deDE: Berufe
+## Dependencies: Blizzard_Professions
+## Author: Raccube
+## IconTexture: Interface\Icons\inv_cosmicvoid_orb
+## SavedVariables: ProfessionKnowledgeTrackerDB
+
+Core.lua
+Localization.lua
+DataProvider.lua
+DB.lua
+
+KnowledgeSourceList.xml
+KnowledgeFrameTemplate.xml
