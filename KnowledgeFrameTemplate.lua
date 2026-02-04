@@ -7,24 +7,27 @@ function KnowledgePageMixin:GetDesiredPageWidth()
 end
 
 function KnowledgePageMixin:Refresh(professionInfo)
+    local profession = PKT.DB[professionInfo.professionID]
+
+    local remainingKps = profession:CalculateRemainingKps()
+    self.Counters.Unique:SetText(PKT.L.COUNTERS.UNIQUE:format(remainingKps.unique))
+    self.Counters.Weekly:SetText(PKT.L.COUNTERS.WEEKLY:format(remainingKps.weekly))
+    self.Counters.CatchUp:SetText(PKT.L.COUNTERS.CATCH_UP:format(remainingKps.catchUp))
+
     self.DetailsForm.Background:SetAtlas(Professions.GetProfessionBackgroundAtlas(professionInfo), TextureKitConstants.IgnoreAtlasSize)
 
-    local dataProvider = PKT.CreateKnowledgeDataProvider(professionInfo)
-    self.SourceList.ScrollBox:SetDataProvider(dataProvider)
+    PKT.dataProvider = PKT.CreateKnowledgeDataProvider(professionInfo)
+    self.SourceList.ScrollBox:SetDataProvider(PKT.dataProvider)
+
     self.WaypointButton:SetPoint("BOTTOMRIGHT", -9, 7)
     self.WaypointButton:SetText(PKT.L.WAYPOINT_BUTTON_INACTIVE_TEXT)
 end
 
--- TODO: Make this trigger when professionID changes
 function KnowledgePageMixin:OnShow()
-    print("KnowledgePageMixin:OnShow()")
+    local professionInfo = C_TradeSkillUI.GetChildProfessionInfo()
 
-    if Professions.InLocalCraftingMode() and C_ProfSpecs.ShouldShowSpecTab() then
-        local professionInfo = C_TradeSkillUI.GetChildProfessionInfo()
-
-        if professionInfo.professionID ~= 0 then
-            self:Refresh(professionInfo)
-        end
+    if PKT.DB[professionInfo.professionID] then
+        self:Refresh(professionInfo)
     end
 end
 
@@ -34,7 +37,28 @@ end
 function KnowledgePageMixin:OnEvent(event, ...)
 end
 
+---@param professionInfo ProfessionInfo
+function KnowledgePageMixin:OnProfessionSelected(professionInfo)
+    if PKT.DB[professionInfo.professionID] then
+        self:Refresh(professionInfo)
+    end
+end
+
+function KnowledgePageMixin:OnTabSet(_, tabID)
+    if tabID == PKT.tabID then
+        if not self.SourceList.selectionBehavior:HasSelection() then
+            local firstNode = FindFirstSource(PKT.dataProvider)
+            self.SourceList.selectionBehavior:SelectFirstElementData(function(node)
+                local data = node:GetData()
+                return data.itemId == firstNode.itemId
+            end)
+        end
+    end
+end
+
 function KnowledgePageMixin:OnLoad()
+    self.DetailsForm.Reagents.Label:SetText(PKT.L.REQUIREMENTS)
+
     if Professions.InLocalCraftingMode() and C_ProfSpecs.ShouldShowSpecTab() then
         local professionInfo = C_TradeSkillUI.GetChildProfessionInfo()
 
@@ -44,6 +68,8 @@ function KnowledgePageMixin:OnLoad()
     end
 
     EventRegistry:RegisterCallback("PKT.Event.OnKnowledgeSourceSelected", self.OnKnowledgeSourceSelected, self)
+    EventRegistry:RegisterCallback("Professions.ProfessionSelected", self.OnProfessionSelected, self)
+    EventRegistry:RegisterCallback("ProfessionsFrame.TabSet", self.OnTabSet, self)
     self.DetailsForm.SourceIcon.CountShadow:Hide()
 
     self.DetailsForm.SourceIcon:SetScript("OnEnter", function()
@@ -110,31 +136,12 @@ function CreateFakeRecipeSchematic(items, currency)
     return schematic
 end
 
----@param source PKT.Item
-function KnowledgePageMixin:OnKnowledgeSourceSelected(source)
-    local item, icon, name, link, quality
-    if source.item then
-        item = source.item
-        icon = item:GetItemIcon()
-        name = item:GetItemName()
-        link = item:GetItemLink()
-        quality = C_Item.GetItemQualityByID(source.itemId)
-    else
-        icon = source:GetIcon()
-        name = source:GetName()
-        quality = Enum.ItemQuality.Epic
-    end
-
-    if self.transaction then
-        self.reagentSlotPool:ReleaseAll()
-        self.transaction = nil
-    end
-
+function KnowledgePageMixin:SetUpRequiredItems()
     self.slots = {}
-    if source.itemRequirements then
+    if PKT.selected.itemRequirements then
         self.reagentSlotPool = CreateFramePool("FRAME", self, "ProfessionsReagentSlotTemplate")
         self.DetailsForm.Reagents:Show()
-        local recipeSchematic = CreateFakeRecipeSchematic(source.itemRequirements, source.currency)
+        local recipeSchematic = CreateFakeRecipeSchematic(PKT.selected.itemRequirements, PKT.selected.currency)
         self.transaction = CreateProfessionsRecipeTransaction(recipeSchematic)
 
         for _, reagentSlotSchematic in ipairs(recipeSchematic.reagentSlotSchematics) do
@@ -163,12 +170,27 @@ function KnowledgePageMixin:OnKnowledgeSourceSelected(source)
     else
         self.DetailsForm.Reagents:Hide()
     end
+end
+
+function KnowledgePageMixin:ShowSource()
+    local source = PKT.selected
+    local icon = source.item and source.item:GetItemIcon() or source:GetIcon()
+    local name = source.item and source.item:GetItemName() or source:GetName()
+    local link = source.item and source.item:GetItemLink() or ""
+    local quality = source.item and C_Item.GetItemQualityByID(source.itemId) or Enum.ItemQuality.Epic
+
+    if self.transaction then
+        self.reagentSlotPool:ReleaseAll()
+        self.transaction = nil
+    end
+
+    self:SetUpRequiredItems()
 
     self.DetailsForm.SourceIcon.Icon:SetTexture(icon)
-    SetItemButtonQuality(self.DetailsForm.SourceIcon, quality, link)
-    self.DetailsForm.DetailText:SetText(source:GetDescription())
+    SetItemButtonQuality(self.DetailsForm.SourceIcon, quality, link, true, false, false)
+    self.DetailsForm.DetailText:SetText(source:GetFullDescription())
 
-    _, _, _, colour = GetItemQualityColor(quality)
+    local _, _, _, colour = C_Item.GetItemQualityColor(quality)
     self.DetailsForm.SourceName:SetText(WrapTextInColorCode(name, colour))
     self.WaypointButton:SetEnabled(source.waypoint ~= nil)
     if PKT.trackedItem == source then
@@ -177,6 +199,12 @@ function KnowledgePageMixin:OnKnowledgeSourceSelected(source)
         self.WaypointButton:SetText(PKT.L.WAYPOINT_BUTTON_INACTIVE_TEXT)
     end
     self.WaypointButton:SetScript("OnClick", GenerateClosure(self.Waypoint, self))
+end
+
+---@param source PKT.Item
+function KnowledgePageMixin:OnKnowledgeSourceSelected(source)
+    PKT.selected = source
+    self:ShowSource()
 end
 
 function KnowledgePageMixin:Waypoint()

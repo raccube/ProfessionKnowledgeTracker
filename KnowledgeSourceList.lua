@@ -37,11 +37,12 @@ function KnowledgeSourceListMixin:OnLoad()
             local function Initializer(button, node)
                 button:Init(node)
                 button:SetText(elementData.text)
+                button.LockedIcon:SetShown(elementData:IsLocked());
 
                 local selected = self.selectionBehavior:IsElementDataSelected(node)
                 button:SetSelected(selected)
 
-                button:SetScript("OnClick", function(button, buttonName,  down)
+                button:SetScript("OnClick", function(button, buttonName, down)
                     if buttonName == "LeftButton" then
                         self.selectionBehavior:Select(button)
                     end
@@ -69,7 +70,7 @@ function KnowledgeSourceListMixin:OnLoad()
         if selected then
             local data = elementData:GetData()
 
-            local newItemID = data.itemId
+            local newItemID = data:GetId()
             local changed = self.previousItemID ~= newItemID
             if changed then
                 EventRegistry:TriggerEvent("PKT.Event.OnKnowledgeSourceSelected", data, self)
@@ -90,7 +91,7 @@ KnowledgeSourceListSourceMixin = {}
 function KnowledgeSourceListSourceMixin:Init(node)
     ---@type PKT.Item elementData
     local elementData = node:GetData()
-    self.Label:SetText(elementData:GetCategoryIcon() .. " " .. elementData:GetName())
+    self.Label:SetText(elementData:GetCategoryIcon() .. " " .. elementData:GetName() or "")
 end
 
 function KnowledgeSourceListSourceMixin:OnLoad()

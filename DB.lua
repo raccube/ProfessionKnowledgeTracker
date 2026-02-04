@@ -2,8 +2,6 @@ local PKT = select(2, ...)
 
 local db = {
 --region Khaz Algar
-    -- TODO: Make the text fields translatable
-
     --region Khaz Algar Alchemy [2871]
     [2871]=PKT.Profession:New(2871, 423321, 3057)
               :AddEntry(PKT.UniqueTreasure:New{questId={83840}, itemId=226265, waypoint={map=2339, x=0.3245, y=0.6034}, kp=3})  -- "Earthen Iron Powder"
@@ -21,8 +19,8 @@ local db = {
               :AddEntry(PKT.UniqueBook:New{questId={85734}, itemId=232499, waypoint={map=2346, x=0.4386, y=0.5082}, kp=10, spell=470728, renown={majorFactionId=2653, levelRequired=16}}) -- Undermine Treatise on Blacksmithing
               :AddEntry(PKT.UniqueBook:New{questId={87255}, itemId=235865, waypoint={map=2472, x=0.4060, y=0.2920}, kp=10, spell=1218653, renown={majorFactionId=2658, levelRequired=12}}) -- Ethereal Tome of Alchemy Knowledge
               :AddEntry(PKT.UniqueBook:New{questId={82633}, itemId=224024, waypoint={map=2213, x=0.5560, y=0.4700}, kp=10, spell=450818, currency={id=3056, quantity=565}}) -- Theories of Bodily Transmutation, Chapter 8, 565 kej (3056) - Theories of Bodily Transmutation, Chapter 8
-              :AddEntry(PKT.Treatise:New {questId={83725}, itemId=222546, waypoint={map=2339, x=0.5804, y=0.5645}, kp=1, spell=457715, atlasIcon="Professions-Crafting-Orders-Icon", text="Inscription work order"}) -- Algari Treatise on Alchemy (Requires skill 25)
-              :AddEntry(PKT.WeeklyQuestItem:New {questId={84133}, itemId=228773, waypoint={map=2339, x=0.5916, y=0.5527}, kp=2, text="Quest: Alchemy Services Requested"}) -- Algari Alchemist's Notebook
+              :AddEntry(PKT.Treatise:New {questId={83725}, itemId=222546, waypoint={map=2339, x=0.5804, y=0.5645}, kp=1, spell=457715, atlasIcon="Professions-Crafting-Orders-Icon"}) -- Algari Treatise on Alchemy (Requires skill 25)
+              :AddEntry(PKT.WeeklyQuestItem:New {questId={84133}, itemId=228773, waypoint={map=2339, x=0.5916, y=0.5527}, kp=2}) -- Algari Alchemist's Notebook
               :AddEntry(PKT.WeeklyTreasure:New{questId={83253}, itemId=225234, kp=2}) -- Alchemical Sediment +2, Treasure Hunt
               :AddEntry(PKT.WeeklyTreasure:New{questId={83255}, itemId=225235, kp=2}) -- Deepstone Crucible + 2, Treasure Hunt
               :AddEntry(PKT.DarkmoonQuest:New{questId={29506}, waypoint={map=407, x=0.5049, y=0.6955}, itemRequirements={{id=1645, quantity=5}}, kp=3}) -- DMF A Fizzy Fusion
@@ -48,8 +46,8 @@ local db = {
               :AddEntry(PKT.UniqueBook:New{questId={85735}, itemId=232500, waypoint={map=2346, x=0.4386, y=0.5082}, kp=10, spell=470729, renown={majorFactionId=2653, levelRequired=16}}) -- Undermine Treatise on Blacksmithing
               :AddEntry(PKT.UniqueBook:New{questId={87266}, itemId=235864, waypoint={map=2472, x=0.4060, y=0.2920}, kp=10, spell=1218652, renown={majorFactionId=2658, levelRequired=12}}) -- Ethereal Tome of Blacksmithing Knowledge
               :AddEntry(PKT.UniqueBook:New{questId={82631}, itemId=224038, waypoint={map=2213, x=0.4680, y=0.2220}, kp=10, spell=450819, currency={id=3056, quantity=565}}) -- Smithing After Saronite
-              :AddEntry(PKT.Treatise:New {questId={83726}, itemId=222554, waypoint={map=2339, x=0.5804, y=0.5645}, kp=1, spell=457717, atlasIcon="Professions-Crafting-Orders-Icon", text="Inscription work order"}) -- Algari Treatise on Blacksmithing (Requires skill 25)
-              :AddEntry(PKT.WeeklyQuestItem:New {questId={84127}, itemId=228774, waypoint={map=2339, x=0.5916, y=0.5527}, kp=2, text="Quest: Blacksmithing Services Requested"}) -- Algari Blacksmith's Journal
+              :AddEntry(PKT.Treatise:New {questId={83726}, itemId=222554, waypoint={map=2339, x=0.5804, y=0.5645}, kp=1, spell=457717, atlasIcon="Professions-Crafting-Orders-Icon"}) -- Algari Treatise on Blacksmithing (Requires skill 25)
+              :AddEntry(PKT.WeeklyQuestItem:New {questId={84127}, itemId=228774, waypoint={map=2339, x=0.5916, y=0.5527}, kp=2}) -- Algari Blacksmith's Journal
               :AddEntry(PKT.WeeklyTreasure:New{questId={83256}, itemId=225233, kp=1}) -- Dense Bladestone
               :AddEntry(PKT.WeeklyTreasure:New{questId={83257}, itemId=225232, kp=1}) -- Coreway Billet
               :AddEntry(PKT.DarkmoonQuest:New{questId={29508}, waypoint={map=407, x=0.5110, y=0.8204}, kp=3}) -- DMF Baby Needs Two Pair of Shoes
@@ -75,10 +73,10 @@ local db = {
               :AddEntry(PKT.UniqueBook:New{questId={85736}, itemId=232501, waypoint={map=2346, x=0.4386, y=0.5082}, kp=10, spell=470730, renown={majorFactionId=2653, levelRequired=16}}) -- Undermine Treatise on Enchanting
               :AddEntry(PKT.UniqueBook:New{questId={87265}, itemId=235863, waypoint={map=2472, x=0.4060, y=0.2920}, kp=10, spell=1218651, renown={majorFactionId=2658, levelRequired=12}}) -- Ethereal Tome of Enchanting Knowledge
               :AddEntry(PKT.UniqueBook:New{questId={82635}, itemId=224050, waypoint={map=2213, x=0.4580, y=0.3320}, kp=10, spell=450821, currency={id=3056, quantity=565}}) -- Web Sparkles: Pretty and Powerful
-              :AddEntry(PKT.Treatise:New {questId={83727}, itemId=222550, waypoint={map=2339, x=0.5804, y=0.5645}, kp=1, spell=457718, atlasIcon="Professions-Crafting-Orders-Icon", text="Inscription work order"}) -- Algari Treatise on Enchanting (Requires skill 25)
-              :AddEntry(PKT.WeeklyQuestItem:New {questId={84084, 84085, 84086}, itemId=227667, waypoint={map=2339, x=0.5292, y=0.7132}, kp=3, text="Enchanting trainer quest", unique=true}) -- Algari Enchanter's Folio
-              :AddEntry(PKT.WeeklyTreasure:New {questId={84290, 84291, 84292, 84293, 84294}, itemId=227659, kp=1, atlasIcon="lootroll-toast-icon-disenchant-up", text="Randomly looted while disenchanting"}) -- "Fleeting Arcane Manifestation"
-              :AddEntry(PKT.WeeklyTreasure:New {questId={84295}, itemId=227661, kp=4, atlasIcon="lootroll-toast-icon-disenchant-up", text="Looted from disenchanting, after looting\n5 Fleeting Arcane Manifestation"}) -- "Gleaming Telluric Crystal"
+              :AddEntry(PKT.Treatise:New {questId={83727}, itemId=222550, waypoint={map=2339, x=0.5804, y=0.5645}, kp=1, spell=457718, atlasIcon="Professions-Crafting-Orders-Icon"}) -- Algari Treatise on Enchanting (Requires skill 25)
+              :AddEntry(PKT.WeeklyQuestItem:New {questId={84084, 84085, 84086}, itemId=227667, waypoint={map=2339, x=0.5292, y=0.7132}, kp=3, text=PKT.L.DESCRIPTION.TRAINER_QUEST, unique=true}) -- Algari Enchanter's Folio
+              :AddEntry(PKT.WeeklyTreasure:New {questId={84290, 84291, 84292, 84293, 84294}, itemId=227659, kp=1, atlasIcon="lootroll-toast-icon-disenchant-up", text=PKT.L.DESCRIPTION.SMALL_GATHERING_YIELD[Enum.Profession.Enchanting]}) -- "Fleeting Arcane Manifestation"
+              :AddEntry(PKT.WeeklyTreasure:New {questId={84295}, itemId=227661, kp=4, atlasIcon="lootroll-toast-icon-disenchant-up", text=PKT.L.DESCRIPTION.LARGE_GATHERING_YIELD[Enum.Profession.Enchanting]}) -- "Gleaming Telluric Crystal"
               :AddEntry(PKT.WeeklyTreasure:New{questId={83258}, itemId=225231, kp=1}) -- Powdered Fulgurance
               :AddEntry(PKT.WeeklyTreasure:New{questId={83259}, itemId=225230, kp=1}) -- Crystalline Repository
               :AddEntry(PKT.DarkmoonQuest:New{questId={29510}, waypoint={map=407, x=0.5316, y=0.7587}, kp=3}) -- DMF Putting Trash to Good Use
@@ -104,8 +102,8 @@ local db = {
               :AddEntry(PKT.UniqueBook:New{questId={85737}, itemId=232507, waypoint={map=2346, x=0.4386, y=0.5082}, kp=10, spell=470731, renown={majorFactionId=2653, levelRequired=16}}) -- Undermine Treatise on Engineering
               :AddEntry(PKT.UniqueBook:New{questId={87264}, itemId=235862, waypoint={map=2472, x=0.4060, y=0.2920}, kp=10, spell=1218650, renown={majorFactionId=2658, levelRequired=12}}) -- Ethereal Tome of Engineering Knowledge
               :AddEntry(PKT.UniqueBook:New{questId={82632}, itemId=224052, waypoint={map=2213, x=0.5787, y=0.3205}, kp=10, spell=450824, currency={id=3056, quantity=565}}) -- Clocks, Gears, Sprockets, and Legs, 565 kej
-              :AddEntry(PKT.Treatise:New {questId={83728}, itemId=222621, waypoint={map=2339, x=0.5804, y=0.5645}, kp=1, spell=457721, atlasIcon="Professions-Crafting-Orders-Icon", text="Inscription work order"}) -- Algari Treatise on Engineering (Requires skill 25)
-              :AddEntry(PKT.WeeklyQuestItem:New {questId={84128}, itemId=228775, waypoint={map=2339, x=0.5916, y=0.5527}, kp=1, text="Quest: Engineering Services Requested"}) -- Algari Engineer's Notepad
+              :AddEntry(PKT.Treatise:New {questId={83728}, itemId=222621, waypoint={map=2339, x=0.5804, y=0.5645}, kp=1, spell=457721, atlasIcon="Professions-Crafting-Orders-Icon"}) -- Algari Treatise on Engineering (Requires skill 25)
+              :AddEntry(PKT.WeeklyQuestItem:New {questId={84128}, itemId=228775, waypoint={map=2339, x=0.5916, y=0.5527}, kp=1}) -- Algari Engineer's Notepad
               :AddEntry(PKT.WeeklyTreasure:New{questId={83260}, itemId=225228, kp=1}) -- Rust-Locked Mechanism
               :AddEntry(PKT.WeeklyTreasure:New{questId={83261}, itemId=225229, kp=1}) -- Earthen Induction Coil
               :AddEntry(PKT.DarkmoonQuest:New{questId={29511}, waypoint={map=407, x=0.4925, y=0.6078}, kp=3}) -- DMF Talkin' Tonks
@@ -131,10 +129,10 @@ local db = {
               :AddEntry(PKT.UniqueBook:New{questId={85738}, itemId=232503, waypoint={map=2346, x=0.4386, y=0.5082}, kp=10, spell=470732, renown={majorFactionId=2653, levelRequired=16}}) -- Undermine Treatise on Herbalism
               :AddEntry(PKT.UniqueBook:New{questId={87263}, itemId=235861, waypoint={map=2472, x=0.4060, y=0.2920}, kp=15, spell=1218649, renown={majorFactionId=2658, levelRequired=12}}) -- Ethereal Tome of Herbalism Knowledge
               :AddEntry(PKT.UniqueBook:New{questId={82630}, itemId=224023, waypoint={map=2213, x=0.4701, y=0.1620}, kp=10, spell=450793, currency={id=3056, quantity=565}}) -- Herbal Embalming Techniques
-              :AddEntry(PKT.Treatise:New {questId={83729}, itemId=222552, waypoint={map=2339, x=0.5804, y=0.5645}, kp=1, spell=457723, atlasIcon="Professions-Crafting-Orders-Icon", text="Inscription work order"}) -- Algari Treatise on Herbalism (Requires skill 25)
-              :AddEntry(PKT.WeeklyQuestItem:New {questId={82970, 82958, 82965, 82916, 82962}, itemId=224817,  waypoint={map=2339, x=0.4476, y=0.6929}, kp=3, text="Herbalism trainer quest.", unique=true}) -- "Algari Herbalist's Notes"
-              :AddEntry(PKT.WeeklyTreasure:New {questId={81416, 81417, 81418, 81419, 81420}, itemId=224264, kp=1, atlasIcon="Professions_Tracking_Herb", text="Randomly looted while gathering herbs"}) -- "Deepgrove Rose Petal"
-              :AddEntry(PKT.WeeklyTreasure:New {questId={81421}, itemId=224265, kp=4, atlasIcon="Professions_Tracking_Herb", text="Looted through herbs, after gathering 5 petals"}) -- "Deepgrove Rose"
+              :AddEntry(PKT.Treatise:New {questId={83729}, itemId=222552, waypoint={map=2339, x=0.5804, y=0.5645}, kp=1, spell=457723, atlasIcon="Professions-Crafting-Orders-Icon"}) -- Algari Treatise on Herbalism (Requires skill 25)
+              :AddEntry(PKT.WeeklyQuestItem:New {questId={82970, 82958, 82965, 82916, 82962}, itemId=224817,  waypoint={map=2339, x=0.4476, y=0.6929}, kp=3, unique=true}) -- "Algari Herbalist's Notes"
+              :AddEntry(PKT.WeeklyTreasure:New {questId={81416, 81417, 81418, 81419, 81420}, itemId=224264, kp=1, atlasIcon="Professions_Tracking_Herb", text=PKT.L.DESCRIPTION.SMALL_GATHERING_YIELD[Enum.Profession.Herbalism]}) -- "Deepgrove Rose Petal"
+              :AddEntry(PKT.WeeklyTreasure:New {questId={81421}, itemId=224265, kp=4, atlasIcon="Professions_Tracking_Herb", text=PKT.L.DESCRIPTION.LARGE_GATHERING_YIELD[Enum.Profession.Herbalism]}) -- "Deepgrove Rose"
               :AddEntry(PKT.DarkmoonQuest:New{questId={29514}, waypoint={map=407, x=0.5500, y=0.7076}, kp=3}) -- DMF Herbs for Healing
               :AddEntry(PKT.CatchUp:New{questId={}, itemId=224835, catchUpCurrencyId=3061, unlockRequirements={PKT.questIdIdx[81416], PKT.questIdIdx[81421], PKT.questIdIdx[82970]}, atlasIcon="Professions_Tracking_Herb", kp=1}) -- Catch up mechanic
               :AddEntry(PKT.UniqueBook:New{ questId={87263}, itemId=235861, waypoint={map=2472, x=0.4060, y=0.2920}, kp=10, spell=1218649, renown={majorFactionId=2658, levelRequired=12}}) -- Ethereal Tome of Herbalism Knowledge
@@ -157,8 +155,8 @@ local db = {
               :AddEntry(PKT.UniqueBook:New{questId={85739}, itemId=232508, waypoint={map=2346, x=0.4386, y=0.5082}, kp=10, spell=470733, renown={majorFactionId=2653, levelRequired=16}}) -- Undermine Treatise on Inscription
               :AddEntry(PKT.UniqueBook:New{questId={87262}, itemId=235860, waypoint={map=2472, x=0.4060, y=0.2920}, kp=10, spell=1218648, renown={majorFactionId=2658, levelRequired=12}}) -- Ethereal Tome of Inscription Knowledge
               :AddEntry(PKT.UniqueBook:New{questId={82636}, itemId=224053, waypoint={map=2213, x=0.4228, y=0.2616}, kp=10, spell=450827, currency={id=3056, quantity=565}}) -- Eight Views on Defense against Hostile Runes
-              :AddEntry(PKT.Treatise:New {questId={83730}, itemId=222548, waypoint={map=2339, x=0.5804, y=0.5645}, kp=1, spell=457722, atlasIcon="Professions-Crafting-Orders-Icon", text="Inscription craft/work order"}) -- Algari Treatise on Inscription (Requires skill 25)
-              :AddEntry(PKT.WeeklyQuestItem:New {questId={84129}, itemId=228776, waypoint={map=2339, x=0.5916, y=0.5527}, kp=2, text="Quest: Inscription Services Requested"}) -- Algari Scribe's Journal
+              :AddEntry(PKT.Treatise:New {questId={83730}, itemId=222548, waypoint={map=2339, x=0.5804, y=0.5645}, kp=1, spell=457722, atlasIcon="Professions-Crafting-Orders-Icon"}) -- Algari Treatise on Inscription (Requires skill 25)
+              :AddEntry(PKT.WeeklyQuestItem:New {questId={84129}, itemId=228776, waypoint={map=2339, x=0.5916, y=0.5527}, kp=2}) -- Algari Scribe's Journal
               :AddEntry(PKT.WeeklyTreasure:New{questId={83262}, itemId=225227, kp=2}) -- Wax-Sealed Records
               :AddEntry(PKT.WeeklyTreasure:New{questId={83264}, itemId=225226, kp=2}) -- Striated Inkstone
               :AddEntry(PKT.DarkmoonQuest:New{questId={29515}, waypoint={map=407, x=0.5325, y=0.7584}, itemRequirements={{id=39354, quantity=5}}, kp=3}) -- DMF Writing the Future
@@ -184,8 +182,8 @@ local db = {
               :AddEntry(PKT.UniqueBook:New{questId={85740}, itemId=232504, waypoint={map=2346, x=0.4386, y=0.5082}, kp=10, spell=470735, renown={majorFactionId=2653, levelRequired=16}}) -- Undermine Treatise on Jewelcrafting
               :AddEntry(PKT.UniqueBook:New{questId={87261}, itemId=235859, waypoint={map=2472, x=0.4060, y=0.2920}, kp=10, spell=1218647, renown={majorFactionId=2658, levelRequired=12}}) -- Ethereal Tome of Jewelcrafting Knowledge
               :AddEntry(PKT.UniqueBook:New{questId={82637}, itemId=224054, waypoint={map=2213, x=0.4779, y=0.1871}, kp=10, spell=450828, currency={id=3056, quantity=565}}) -- Emergent Crystals of the Surface-Dwellers
-              :AddEntry(PKT.Treatise:New {questId={83731}, itemId=222551, waypoint={map=2339, x=0.5804, y=0.5645}, kp=1, spell=457725, atlasIcon="Professions-Crafting-Orders-Icon", text="Inscription work order"}) -- Algari Treatise on Jewelcrafting (Requires skill 25)
-              :AddEntry(PKT.WeeklyQuestItem:New {questId={84130}, itemId=228777, waypoint={map=2339, x=0.5971, y=0.5627}, kp=2, text="Quest: Jewelcrafting Services Requested"}) -- Algari Jewelcrafter's Notebook
+              :AddEntry(PKT.Treatise:New {questId={83731}, itemId=222551, waypoint={map=2339, x=0.5804, y=0.5645}, kp=1, spell=457725, atlasIcon="Professions-Crafting-Orders-Icon"}) -- Algari Treatise on Jewelcrafting (Requires skill 25)
+              :AddEntry(PKT.WeeklyQuestItem:New {questId={84130}, itemId=228777, waypoint={map=2339, x=0.5971, y=0.5627}, kp=2}) -- Algari Jewelcrafter's Notebook
               :AddEntry(PKT.WeeklyTreasure:New{questId={83265}, itemId=225224, kp=2}) -- "Diaphanous Gem Shards" Kobyss Ritual Cache
               :AddEntry(PKT.WeeklyTreasure:New{questId={83266}, itemId=225225, kp=2}) -- "Deepstone Fragment" Deep-Lost Satchel
               :AddEntry(PKT.DarkmoonQuest:New{questId={29516}, waypoint={map=407, x=0.5500, y=0.7079}, kp=3}) -- DMF Keeping the Faire Sparkling
@@ -211,8 +209,8 @@ local db = {
               :AddEntry(PKT.UniqueBook:New{questId={85741}, itemId=232505, waypoint={map=2346, x=0.4386, y=0.5082}, kp=10, spell=470736, renown={majorFactionId=2653, levelRequired=16}}) -- Undermine Treatise on Leatherworking
               :AddEntry(PKT.UniqueBook:New{questId={87260}, itemId=235858, waypoint={map=2472, x=0.4060, y=0.2920}, kp=10, spell=1218646, renown={majorFactionId=2658, levelRequired=12}}) -- Ethereal Tome of Leatherworking Knowledge
               :AddEntry(PKT.UniqueBook:New{questId={82626}, itemId=224056, waypoint={map=2213, x=0.4309, y=0.2065}, kp=10, spell=450835, currency={id=3056, quantity=565}}) -- Uses for Leftover Husks (After You Take Them Apart)
-              :AddEntry(PKT.Treatise:New {questId={83732}, itemId=222549, waypoint={map=2339, x=0.5804, y=0.5645}, kp=1, spell=457720, atlasIcon="Professions-Crafting-Orders-Icon", text="Inscription work order"}) -- Algari Treatise on Leatherworking (Requires skill 25)
-              :AddEntry(PKT.WeeklyQuestItem:New {questId={84131}, itemId=228778, waypoint={map=2339, x=0.5971, y=0.5627}, kp=2, text="Quest: Leatherworking Services Requested"}) -- Algari Leatherworker's Journal
+              :AddEntry(PKT.Treatise:New {questId={83732}, itemId=222549, waypoint={map=2339, x=0.5804, y=0.5645}, kp=1, spell=457720, atlasIcon="Professions-Crafting-Orders-Icon"}) -- Algari Treatise on Leatherworking (Requires skill 25)
+              :AddEntry(PKT.WeeklyQuestItem:New {questId={84131}, itemId=228778, waypoint={map=2339, x=0.5971, y=0.5627}, kp=2}) -- Algari Leatherworker's Journal
               :AddEntry(PKT.WeeklyTreasure:New{questId={83267}, itemId=225223, kp=1}) -- Sturdy Nerubian Carapace
               :AddEntry(PKT.WeeklyTreasure:New{questId={83268}, itemId=225222, kp=1}) -- Stone-Leather Swatch
               :AddEntry(PKT.DarkmoonQuest:New{questId={29517}, waypoint={map=407, x=0.4925, y=0.6079}, itemRequirements={{id=6529, quantity=10},{id=2320, quantity=5},{id=6260, quantity=5}}, kp=3}) -- DMF Eyes on the Prizes
@@ -238,10 +236,10 @@ local db = {
               :AddEntry(PKT.UniqueBook:New{questId={85742}, itemId=232509, waypoint={map=2346, x=0.4386, y=0.5082}, kp=10, spell=470737, renown={majorFactionId=2653, levelRequired=16}}) -- Undermine Treatise on Mining
               :AddEntry(PKT.UniqueBook:New{questId={87259}, itemId=235857, waypoint={map=2472, x=0.4060, y=0.2920}, kp=15, spell=1218645, renown={majorFactionId=2658, levelRequired=12}}) -- Ethereal Tome of Mining Knowledge
               :AddEntry(PKT.UniqueBook:New{questId={82614}, itemId=224055, waypoint={map=2213, x=0.4680, y=0.2220}, kp=10, spell=450836, currency={id=3056, quantity=565}}) -- A Rocky Start
-              :AddEntry(PKT.WeeklyQuestItem:New {questId={83104, 83105, 83103, 83106, 83102}, itemId=224818,  waypoint={map=2339, x=0.5262, y=0.5254}, kp=3, text="Mining trainer quest", unique=true}) -- "Algari Miner's Notes"
-              :AddEntry(PKT.Treatise:New {questId={83733}, itemId=222553, waypoint={map=2339, x=0.5804, y=0.5645}, kp=1, spell=457726, atlasIcon="Professions-Crafting-Orders-Icon", text="Inscription work order"}) -- Algari Treatise on Mining (Requires skill 25)
-              :AddEntry(PKT.WeeklyTreasure:New {questId={83050, 83051, 83052, 83053, 83054}, itemId=224583, kp=1, atlasIcon="Professions_Tracking_Ore", text="Randomly looted while mining"}) -- "Slab of Slate"
-              :AddEntry(PKT.WeeklyTreasure:New {questId={83049}, itemId=224584, kp=3, atlasIcon="Professions_Tracking_Ore", text="Looted through mining, after 5 Slabs of Slate"}) -- "Slab of Slate"
+              :AddEntry(PKT.WeeklyQuestItem:New {questId={83104, 83105, 83103, 83106, 83102}, itemId=224818,  waypoint={map=2339, x=0.5262, y=0.5254}, kp=3, unique=true}) -- "Algari Miner's Notes"
+              :AddEntry(PKT.Treatise:New {questId={83733}, itemId=222553, waypoint={map=2339, x=0.5804, y=0.5645}, kp=1, spell=457726, atlasIcon="Professions-Crafting-Orders-Icon"}) -- Algari Treatise on Mining (Requires skill 25)
+              :AddEntry(PKT.WeeklyTreasure:New {questId={83050, 83051, 83052, 83053, 83054}, itemId=224583, kp=1, atlasIcon="Professions_Tracking_Ore", text=PKT.L.DESCRIPTION.SMALL_GATHERING_YIELD[Enum.Profession.Mining]}) -- "Slab of Slate"
+              :AddEntry(PKT.WeeklyTreasure:New {questId={83049}, itemId=224584, kp=3, atlasIcon="Professions_Tracking_Ore", text=PKT.L.DESCRIPTION.LARGE_GATHERING_YIELD[Enum.Profession.Mining]}) -- "Slab of Slate"
               :AddEntry(PKT.DarkmoonQuest:New{questId={29518}, waypoint={map=407, x=0.4930, y=0.6087}, kp=3}) -- DMF Rearm, Reuse, Recycle
               :AddEntry(PKT.CatchUp:New{questId={}, itemId=224838, catchUpCurrencyId=3065, unlockRequirements={PKT.questIdIdx[83049], PKT.questIdIdx[83050], PKT.questIdIdx[83104]}, atlasIcon="Professions_Tracking_Ore", kp=1}) -- Catch up mechanic
               :AddEntry(PKT.UniqueBook:New{ questId={87259}, itemId=235857, waypoint={map=2472, x=0.4060, y=0.2920}, kp=10, spell=1218645, renown={majorFactionId=2658, levelRequired=12}}) -- Ethereal Tome of Mining Knowledge
@@ -265,10 +263,10 @@ local db = {
               :AddEntry(PKT.UniqueBook:New{questId={85744}, itemId=232506, waypoint={map=2346, x=0.4386, y=0.5082}, kp=10, spell=470738, renown={majorFactionId=2653, levelRequired=16}}) -- Undermine Treatise on Skinning
               :AddEntry(PKT.UniqueBook:New{questId={87258}, itemId=235856, waypoint={map=2472, x=0.4060, y=0.2920}, kp=15, spell=1218644, renown={majorFactionId=2658, levelRequired=12}}) -- Ethereal Tome of Skinning Knowledge
               :AddEntry(PKT.UniqueBook:New{questId={82596}, itemId=224007, waypoint={map=2213, x=0.4309, y=0.2065}, kp=10, spell=450698, currency={id=3056, quantity=565}}) -- Uses for Leftover Husks (How to Take Them Apart)
-              :AddEntry(PKT.WeeklyQuestItem:New {questId={83097, 83098, 83100, 82992, 82993}, itemId=224807,  waypoint={map=2339, x=0.5429, y=0.5738}, kp=3, text="Skinning trainer quest", unique=true}) -- "Algari Herbalist's Notes"
-              :AddEntry(PKT.Treatise:New {questId={83734}, itemId=222649, waypoint={map=2339, x=0.5804, y=0.5645}, kp=1, spell=457724, atlasIcon="Professions-Crafting-Orders-Icon", text="Inscription work order"}) -- Algari Treatise on Skinning (Requires skill 25)
-              :AddEntry(PKT.WeeklyTreasure:New{questId={81459, 81460, 81461, 81462, 81463}, itemId=224780, kp=1, atlasIcon="worldquest-icon-skinning", text="Randomly looted while skinning"}) -- "Toughened Tempest Pelt"
-              :AddEntry(PKT.WeeklyTreasure:New{questId={81464}, itemId=224781, kp=2, atlasIcon="worldquest-icon-skinning", text="Looted through skinning, after 5 pelts"}) -- "Toughened Tempest Pelt"
+              :AddEntry(PKT.WeeklyQuestItem:New {questId={83097, 83098, 83100, 82992, 82993}, itemId=224807,  waypoint={map=2339, x=0.5429, y=0.5738}, kp=3, unique=true}) -- "Algari Herbalist's Notes"
+              :AddEntry(PKT.Treatise:New {questId={83734}, itemId=222649, waypoint={map=2339, x=0.5804, y=0.5645}, kp=1, spell=457724, atlasIcon="Professions-Crafting-Orders-Icon"}) -- Algari Treatise on Skinning (Requires skill 25)
+              :AddEntry(PKT.WeeklyTreasure:New{questId={81459, 81460, 81461, 81462, 81463}, itemId=224780, kp=1, atlasIcon="worldquest-icon-skinning", text=PKT.L.DESCRIPTION.SMALL_GATHERING_YIELD[Enum.Profession.Skinning]}) -- "Toughened Tempest Pelt"
+              :AddEntry(PKT.WeeklyTreasure:New{questId={81464}, itemId=224781, kp=2, atlasIcon="worldquest-icon-skinning", text=PKT.L.DESCRIPTION.LARGE_GATHERING_YIELD[Enum.Profession.Skinning]}) -- "Toughened Tempest Pelt"
               :AddEntry(PKT.DarkmoonQuest:New{questId={29519}, waypoint={map=407, x=0.5501, y=0.7078}, kp=3}) -- DMF Tan My Hide
               :AddEntry(PKT.CatchUp:New{questId={}, itemId=224782, catchUpCurrencyId=3066, unlockRequirements={PKT.questIdIdx[81464], PKT.questIdIdx[81459], PKT.questIdIdx[83097]}, atlasIcon="worldquest-icon-skinning", kp=1}) -- Catch up mechanic
               :AddEntry(PKT.UniqueBook:New{ questId={87258}, itemId=235856, waypoint={map=2472, x=0.4060, y=0.2920}, kp=10, spell=1218644, renown={majorFactionId=2658, levelRequired=12}}) -- Ethereal Tome of Skinning Knowledge
@@ -292,8 +290,8 @@ local db = {
               :AddEntry(PKT.UniqueBook:New{questId={85745}, itemId=232502, waypoint={map=2346, x=0.4386, y=0.5082}, kp=10, spell=470739, renown={majorFactionId=2653, levelRequired=16}}) -- Undermine Treatise on Tailoring
               :AddEntry(PKT.UniqueBook:New{questId={87257}, itemId=235855, waypoint={map=2472, x=0.4060, y=0.2920}, kp=10, spell=1218643, renown={majorFactionId=2658, levelRequired=12}}) -- Ethereal Tome of Tailoring Knowledge
               :AddEntry(PKT.UniqueBook:New{questId={82634}, itemId=224036, waypoint={map=2213, x=0.5063, y=0.1680}, kp=10, spell=450840, currency={id=3056, quantity=565}}) -- And That's A Web-Wrap!
-              :AddEntry(PKT.Treatise:New {questId={83735}, itemId=222547, waypoint={map=2339, x=0.5804, y=0.5645}, kp=1, spell=457719, atlasIcon="Professions-Crafting-Orders-Icon", text="Inscription work order"}) -- Algari Treatise on Tailoring (Requires skill 25)
-              :AddEntry(PKT.WeeklyQuestItem:New {questId={84132}, itemId=228779, waypoint={map=2339, x=0.5971, y=0.5627}, kp=2, text="Quest: Tailoring Services Requested"}) -- Algari Tailor's Notebook
+              :AddEntry(PKT.Treatise:New {questId={83735}, itemId=222547, waypoint={map=2339, x=0.5804, y=0.5645}, kp=1, spell=457719, atlasIcon="Professions-Crafting-Orders-Icon"}) -- Algari Treatise on Tailoring (Requires skill 25)
+              :AddEntry(PKT.WeeklyQuestItem:New {questId={84132}, itemId=228779, waypoint={map=2339, x=0.5971, y=0.5627}, kp=2}) -- Algari Tailor's Notebook
               :AddEntry(PKT.WeeklyTreasure:New{questId={83269}, itemId=225221, kp=1}) -- "Spool of Webweave"
               :AddEntry(PKT.WeeklyTreasure:New{questId={83270}, itemId=225220, kp=1}) -- "Machine Speaker's"
               :AddEntry(PKT.DarkmoonQuest:New {questId={29520}, waypoint={map=407, x=0.5555, y=0.5500}, itemRequirements={{id=2320, quantity=1}, {id=2604, quantity=1}, {id=6260, quantity=1}}, kp=3}) -- Banners, Banners Everywhere!

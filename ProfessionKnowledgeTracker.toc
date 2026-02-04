@@ -12,7 +12,7 @@
 
 Core.lua
 Localization.lua
-DataProvider.lua
+EntryTypes.lua
 DB.lua
 
 KnowledgeSourceList.xml

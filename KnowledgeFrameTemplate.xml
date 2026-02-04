@@ -11,10 +11,37 @@
                     <Anchor point="BOTTOMLEFT" y="5"/>
                 </Anchors>
             </Frame>
+            <Frame parentKey="Counters">
+                <Layers>
+                    <Layer>
+                        <FontString parentKey="Unique" inherits="GameFontHighlightMed2"
+                                    justifyH="LEFT" justifyV="TOP">
+                            <Size x="300"/>
+                            <Anchors>
+                                <Anchor point="TOPLEFT" x="300" y="-40" relativeTo="$parent"/>
+                            </Anchors>
+                        </FontString>
+                        <FontString parentKey="Weekly" inherits="GameFontHighlightMed2"
+                                    justifyH="LEFT" justifyV="TOP">
+                            <Size x="300"/>
+                            <Anchors>
+                                <Anchor point="TOPLEFT" x="440" y="-40" relativeTo="$parent"/>
+                            </Anchors>
+                        </FontString>
+                        <FontString parentKey="CatchUp" inherits="GameFontHighlightMed2"
+                                    justifyH="LEFT" justifyV="TOP">
+                            <Size x="300"/>
+                            <Anchors>
+                                <Anchor point="TOPLEFT" x="580" y="-40" relativeTo="$parent"/>
+                            </Anchors>
+                        </FontString>
+                    </Layer>
+                </Layers>
+            </Frame>
             <Frame parentKey="DetailsForm" setAllPoints="true" useParentLevel="true">
                 <Size x="793" y="553"/>
                 <KeyValues>
-                    <KeyValue key="layoutType" value="InsetFrameTemplate" type="string"/>
+                    <KeyValue key="layoutType" value="InsetFrameTemplate"/>
                 </KeyValues>
                 <Anchors>
                     <Anchor point="TOPLEFT" relativeKey="$parent.SourceList" relativePoint="TOPRIGHT" x="2" y="0"/>
@@ -28,10 +55,10 @@
                                 <Anchor point="LEFT" relativeKey="$parent.SourceIcon" relativePoint="TOPLEFT" x="90" y="-50"/>
                             </Anchors>
                         </FontString>
-                        <FontString parentKey="DetailText" inherits="GameFontHighlight" justifyH="LEFT" justifyV="TOP">
+                        <FontString parentKey="DetailText" inherits="GameFontHighlightSmall2" justifyH="LEFT" justifyV="TOP">
                             <Size x="600" y="0"/>
                             <Anchors>
-                                <Anchor point="TOPLEFT" relativeKey="$parent.SourceIcon" relativePoint="TOPLEFT" x="90" y="-250"/>
+                                <Anchor point="TOPLEFT" relativeKey="$parent.SourceIcon" relativePoint="TOPLEFT" x="30" y="-100"/>
                             </Anchors>
                         </FontString>
                     </Layer>
@@ -45,13 +72,10 @@
                             <KeyValue key="noProfessionQualityOverlay" value="true" type="boolean"/>
                         </KeyValues>
                         <Anchors>
-                            <Anchor point="TOPLEFT" x="28" y="-33"/>
+                            <Anchor point="TOPLEFT" x="30" y="-24"/>
                         </Anchors>
                     </Button>
-                    <Frame parentKey="Reagents" inherits="ProfessionsReagentContainerTemplate">
-                        <KeyValues>
-                            <KeyValue key="labelText" value="PROFESSIONS_REAGENT_CONTAINER_LABEL" type="global"/>
-                        </KeyValues>
+                    <Frame parentKey="Reagents" inherits="ProfessionsReagentContainerTemplate" hidden="true">
                         <Anchors>
                             <Anchor point="TOP" relativeKey="$parent.SourceIcon" relativePoint="BOTTOM" x="75" y="-65"/>
                         </Anchors>
