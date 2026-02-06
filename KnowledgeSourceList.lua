@@ -86,6 +86,38 @@ function KnowledgeSourceListMixin:OnLoad()
 
     self.selectionBehavior = ScrollUtil.AddSelectionBehavior(self.ScrollBox)
     self.selectionBehavior:RegisterCallback(SelectionBehaviorMixin.Event.OnSelectionChanged, OnSelectionChanged, self)
+
+    self:InitFilterMenu(self.FilterDropdown)
+end
+
+function KnowledgeSourceListMixin:GetCurrentFilterSet()
+    return {
+        textFilter = self.SearchBox:GetText(),
+    }
+end
+
+function KnowledgeSourceListMixin:InitFilterMenu(dropdown)
+    dropdown:SetupMenu(function(dropdown, rootDescription)
+        rootDescription:SetTag("MENU_PROFESSIONS_FILTER")
+
+        local function IsExpansionChecked(professionInfo)
+            return C_TradeSkillUI.GetChildProfessionInfo().professionID == professionInfo.professionID;
+        end
+
+        local function SetExpansionChecked(professionInfo)
+            EventRegistry:TriggerEvent("Professions.SelectSkillLine", professionInfo);
+        end
+
+        local childProfessionInfos = C_TradeSkillUI.GetChildProfessionInfos()
+        if #childProfessionInfos > 0 then
+            for _, professionInfo in ipairs(childProfessionInfos) do
+                local radioButton = rootDescription:CreateRadio(professionInfo.expansionName, IsExpansionChecked, SetExpansionChecked, professionInfo)
+                if not PKT.DB[professionInfo.professionID] then
+                    radioButton:SetEnabled(false)
+                end
+            end
+        end
+    end)
 end
 
 KnowledgeSourceListSourceMixin = {}
