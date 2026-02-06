@@ -39,7 +39,7 @@ local L = {
             TREASURES = "%s Found in treasures around Khaz Algar",
             TREATISE = "Obtained through Inscription work orders",
             TRAINER_QUEST = "Obtained through a quest from your profession trainer",
-            KP_COUNT = "Completing this will award you %d knowledge points."
+            KP_COUNT = "Completing this will award you %d %s.",
         },
         COUNTERS = {
             UNIQUE = "Unique: %d",
@@ -89,7 +89,7 @@ local L = {
             TREASURES = "%s Gefunden auf Schätzen rund um Khaz Algar",
             TREATISE = "Erhalten durch Inschriftenkunde-Handwerksaufträge",
             TRAINER_QUEST = "Erhalten durch eine Quest von deinem Berufsausbilder",
-            KP_COUNT = "Wenn Sie dies abschließen, erhalten Sie %d Wissenspunkte.",
+            KP_COUNT = "Wenn Sie dies abschließen, erhalten Sie %d %s.",
         },
         COUNTERS = {
             UNIQUE = "Einzigartig: %d",

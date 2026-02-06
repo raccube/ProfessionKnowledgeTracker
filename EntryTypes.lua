@@ -206,7 +206,8 @@ function PKT.Item:GetFullDescription()
     end
     local name = self:GetDescription()
     local mapInfo = C_Map.GetMapInfo(self.waypoint.map)
-    local kpCount = PKT.L.DESCRIPTION.KP_COUNT:format(self:GetRemainingKnowledgePoints())
+    local currency = C_CurrencyInfo.GetCurrencyLink(self.profession.knowledgeCurrencyId, self:GetRemainingKnowledgePoints())
+    local kpCount = PKT.L.DESCRIPTION.KP_COUNT:format(self:GetRemainingKnowledgePoints(), currency)
     return string.format("%s%s\n%s - x:%.2f y:%.2f\n%s", renownText, name, mapInfo.name, self.waypoint.x * 100, self.waypoint.y * 100, kpCount)
 end
 
@@ -428,13 +429,15 @@ PKT.Profession.__index = PKT.Profession
 ---@param professionId number
 ---@param spellId number
 ---@param catchUpCurrencyId number
+---@param knowledgeCurrencyId number
 ---@return PKT.Profession
-function PKT.Profession:New(professionId, spellId, catchUpCurrencyId)
+function PKT.Profession:New(professionId, spellId, catchUpCurrencyId, knowledgeCurrencyId)
     local profession = {}
     setmetatable(profession, self)
     profession.id = professionId
     profession.spellId = spellId
     profession.catchUpCurrencyId = catchUpCurrencyId
+    profession.knowledgeCurrencyId = knowledgeCurrencyId
 
     PKT.professionSpellIdIdx[spellId] = profession
     PKT.professionCatchUpCurrencyIdIdx[catchUpCurrencyId] = profession

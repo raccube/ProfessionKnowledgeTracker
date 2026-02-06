@@ -3,7 +3,7 @@ local PKT = select(2, ...)
 local db = {
 --region Khaz Algar
     --region Khaz Algar Alchemy [2871]
-    [2871]=PKT.Profession:New(2871, 423321, 3057)
+    [2871]=PKT.Profession:New(2871, 423321, 3057, 2785)
               :AddEntry(PKT.UniqueTreasure:New{questId={83840}, itemId=226265, waypoint={map=2339, x=0.3245, y=0.6034}, kp=3})  -- "Earthen Iron Powder"
               :AddEntry(PKT.UniqueTreasure:New{questId={83841}, itemId=226266, waypoint={map=2248, x=0.5770, y=0.6177}, kp=3})  -- "Metal Dornogal Frame"
               :AddEntry(PKT.UniqueTreasure:New{questId={83842}, itemId=226267, waypoint={map=2214, x=0.3803, y=0.2415}, kp=3})  -- "Reinforced Beaker"
@@ -30,7 +30,7 @@ local db = {
     --endregion
 
     --region Khaz Algar Blacksmithing [2872]
-    [2872]=PKT.Profession:New(2872, 423332, 3058)
+    [2872]=PKT.Profession:New(2872, 423332, 3058, 2786)
               :AddEntry(PKT.UniqueTreasure:New{questId={83848}, itemId=226276, waypoint={map=2248, x=0.59827, y=0.6191}, kp=3}) -- "Ancient Earthen Anvil"
               :AddEntry(PKT.UniqueTreasure:New{questId={83849}, itemId=226277, waypoint={map=2339, x=0.4757, y=0.2623}, kp=3}) -- "Dornogal Hammer"
               :AddEntry(PKT.UniqueTreasure:New{questId={83850}, itemId=226278, waypoint={map=2214, x=0.4355, y=0.3316}, kp=3}) -- "Ringing Hammer Vise"
@@ -57,7 +57,7 @@ local db = {
     --endregion
 
     --region Khaz Algar Enchanting [2874]
-    [2874]=PKT.Profession:New(2874, 423334, 3059)
+    [2874]=PKT.Profession:New(2874, 423334, 3059, 2787)
               :AddEntry(PKT.UniqueTreasure:New{questId={83856}, itemId=226284, waypoint={map=2248, x=0.5759, y=0.6164}, kp=3}) -- "Grinded Earthen Gem"
               :AddEntry(PKT.UniqueTreasure:New{questId={83859}, itemId=226285, waypoint={map=2339, x=0.5803, y=0.5695}, kp=3}) -- "Silver Dornogal Rod"
               :AddEntry(PKT.UniqueTreasure:New{questId={83860}, itemId=226286, waypoint={map=2214, x=0.4046, y=0.22132}, kp=3}) -- "Soot-Coated Orb"
@@ -86,7 +86,7 @@ local db = {
     --endregion
 
     --region Khaz Algar Engineering [2875]
-    [2875]=PKT.Profession:New(2875, 423335, 3060)
+    [2875]=PKT.Profession:New(2875, 423335, 3060, 2788)
               :AddEntry(PKT.UniqueTreasure:New{questId={83866}, itemId=226292, waypoint={map=2248, x=0.6136, y=0.6957}, kp=3}) -- "Rock Engineer's Wrench"
               :AddEntry(PKT.UniqueTreasure:New{questId={83867}, itemId=226293, waypoint={map=2339, x=0.6466, y=0.5258}, kp=3}) -- "Dornogal Spectacles"
               :AddEntry(PKT.UniqueTreasure:New{questId={83868}, itemId=226294, waypoint={map=2214, x=0.3852, y=0.2729}, kp=3}) -- "Inert Mining Bomb"
@@ -113,7 +113,7 @@ local db = {
     --endregion
 
     --region Khaz Algar Herbalism [2877]
-    [2877]=PKT.Profession:New(2877, 441327, 3061)
+    [2877]=PKT.Profession:New(2877, 441327, 3061, 2789)
               :AddEntry(PKT.UniqueTreasure:New{questId={83874}, itemId=226300, waypoint={map=2248, x=0.5755, y=0.6146}, kp=3}) -- "Ancient Flower"
               :AddEntry(PKT.UniqueTreasure:New{questId={83875}, itemId=226301, waypoint={map=2339, x=0.5925, y=0.2354}, kp=3}) -- "Dornogal Gardening Scythe"
               :AddEntry(PKT.UniqueTreasure:New{questId={83876}, itemId=226302, waypoint={map=2214, x=0.4409, y=0.3504}, kp=3}) -- "Earthen Digging Fork"
@@ -140,7 +140,7 @@ local db = {
     --endregion
 
     --region Khaz Algar Inscription [2878]
-    [2878]=PKT.Profession:New(2878, 423338, 3062)
+    [2878]=PKT.Profession:New(2878, 423338, 3062, 2790)
               :AddEntry(PKT.UniqueTreasure:New{questId={83882}, itemId=226308, waypoint={map=2339, x=0.5725, y=0.4690}, kp=3}) -- "Dornogal Scribe's Quill"
               :AddEntry(PKT.UniqueTreasure:New{questId={83883}, itemId=226309, waypoint={map=2248, x=0.55975, y=0.6001}, kp=3}) -- "Historian's Dip Pen"
               :AddEntry(PKT.UniqueTreasure:New{questId={83884}, itemId=226310, waypoint={map=2214, x=0.4441, y=0.3432}, kp=3}) -- "Runic Scroll"
@@ -166,7 +166,7 @@ local db = {
     --endregion
 
     --region Khaz Algar Jewelcrafting [2879]
-    [2879]=PKT.Profession:New(2879, 423339, 3063)
+    [2879]=PKT.Profession:New(2879, 423339, 3063, 2791)
               :AddEntry(PKT.UniqueTreasure:New{questId={83890}, itemId=226316, waypoint={map=2248, x=0.6353, y=0.6688}, kp=3}) -- "Gentle Jewel Hammer" Door at 63.05 67.20
               :AddEntry(PKT.UniqueTreasure:New{questId={83891}, itemId=226317, waypoint={map=2339, x=0.3484, y=0.5217}, kp=3}) -- "Earthen Gem Pliers"
               :AddEntry(PKT.UniqueTreasure:New{questId={83892}, itemId=226318, waypoint={map=2214, x=0.4433, y=0.3512}, kp=3}) -- "Carved Stone File" Door at 48.12 34.69
@@ -193,7 +193,7 @@ local db = {
     --endregion
 
     --region Khaz Algar Leatherworking [2880]
-    [2880]=PKT.Profession:New(2880, 423340, 3064)
+    [2880]=PKT.Profession:New(2880, 423340, 3064, 2792)
               :AddEntry(PKT.UniqueTreasure:New{questId={83898}, itemId=226324, waypoint={map=2339, x=0.6826, y=0.2334}, kp=3}) -- "Earthen Lacing Tools"
               :AddEntry(PKT.UniqueTreasure:New{questId={83899}, itemId=226325, waypoint={map=2248, x=0.5865, y=0.3077}, kp=3}) -- "Dornogal Craftsman's Flat Knife"
               :AddEntry(PKT.UniqueTreasure:New{questId={83900}, itemId=226326, waypoint={map=2214, x=0.4290, y=0.3489}, kp=3}) -- "Underground Stropping Compound" Door at 47.11 33.83
@@ -220,7 +220,7 @@ local db = {
     --endregion
 
     --region Khaz Algar Mining [2881]
-    [2881]=PKT.Profession:New(2881, 423341, 3065)
+    [2881]=PKT.Profession:New(2881, 423341, 3065, 2793)
               :AddEntry(PKT.UniqueTreasure:New{questId={83906}, itemId=226332, waypoint={map=2248, x=0.5819, y=0.6204}, kp=3}) -- "Earthen Miner's Gavel"
               :AddEntry(PKT.UniqueTreasure:New{questId={83907}, itemId=226333, waypoint={map=2339, x=0.3670, y=0.7935}, kp=3}) -- "Dornogal Chisel"
               :AddEntry(PKT.UniqueTreasure:New{questId={83908}, itemId=226334, waypoint={map=2214, x=0.4527, y=0.2754}, kp=3}) -- "Earthen Excavator's Shovel"
@@ -247,7 +247,7 @@ local db = {
     --endregion
 
     --region Khaz Algar Skinning [2882]
-    [2882]=PKT.Profession:New(2882, 423342, 3066)
+    [2882]=PKT.Profession:New(2882, 423342, 3066, 2794)
               :AddEntry(PKT.UniqueTreasure:New{questId={83914}, itemId=226340, waypoint={map=2339, x=0.2877, y=0.5166}, kp=3}) -- "Dornogal Carving Knife" Door at 30.51 56.31
               :AddEntry(PKT.UniqueTreasure:New{questId={83915}, itemId=226341, waypoint={map=2248, x=0.6004, y=0.2800}, kp=3}) -- "Earthen Worker's Beams"
               :AddEntry(PKT.UniqueTreasure:New{questId={83916}, itemId=226342, waypoint={map=2214, x=0.4314, y=0.2834}, kp=3}) -- "Artisan's Drawing Knife"
@@ -274,7 +274,7 @@ local db = {
     --endregion
 
     --region Khaz Algar Tailoring [2883]
-    [2883]=PKT.Profession:New(2883, 423343, 3067)
+    [2883]=PKT.Profession:New(2883, 423343, 3067, 2795)
               :AddEntry(PKT.UniqueTreasure:New{questId={83922}, itemId=226348, waypoint={map=2339, x=0.6155, y=0.1852}, kp=3}) -- "Dornogal Seam Ripper"
               :AddEntry(PKT.UniqueTreasure:New{questId={83923}, itemId=226349, waypoint={map=2248, x=0.5621, y=0.6101}, kp=3}) -- "Earthen Tape Measure"
               :AddEntry(PKT.UniqueTreasure:New{questId={83924}, itemId=226350, waypoint={map=2214, x=0.4468, y=0.3287}, kp=3}) -- "Runed Earthen Pins" Door at 47.63 32.17
