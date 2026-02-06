@@ -28,8 +28,12 @@ local function OnEvent(_, event, ...)
 
             f.TabSystem:SetTabShown(PKT.tabID, shown)
 
-            if f.TabSystem.selectedTabID == PKT.tabID and not shown then
-                f.TabSystem:SetTab(ProfessionsFrame.recipesTabID, false)
+            if f.TabSystem.selectedTabID == PKT.tabID then
+                if shown and PKT.DB[professionInfo.professionID] then
+                    PKT.frame:Refresh(professionInfo)
+                elseif not shown then
+                    f.TabSystem:SetTab(ProfessionsFrame.recipesTabID, false)
+                end
             end
         end)
     elseif event == "QUEST_TURNED_IN" then
