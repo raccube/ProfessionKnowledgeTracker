@@ -553,9 +553,9 @@ function PKT.CreateKnowledgeDataProvider(professionInfo)
     local root = dataProvider:GetRootNode()
 
     local categories = {
-        [PKT.EntryState.Available] = root:Insert({ categoryName = PKT.L.CATEGORY.Available }),
-        [PKT.EntryState.Unavailable] = root:Insert({ categoryName = PKT.L.CATEGORY.Unavailable }),
-        [PKT.EntryState.Completed] = root:Insert({ categoryName = PKT.L.CATEGORY.Completed }),
+        [PKT.EntryState.Available] = root:Insert({ categoryName = PKT.L.CATEGORY.Available, collapsed = false }),
+        [PKT.EntryState.Unavailable] = root:Insert({ categoryName = PKT.L.CATEGORY.Unavailable, collapsed = true }),
+        [PKT.EntryState.Completed] = root:Insert({ categoryName = PKT.L.CATEGORY.Completed, collapsed = true }),
     }
 
     for _, source in ipairs(profession:GetAvailableItems()) do

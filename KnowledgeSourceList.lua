@@ -21,6 +21,8 @@ function KnowledgeSourceListMixin:OnLoad()
             local function Initializer(button, node)
                 button:Init(node)
                 button:SetText(elementData.categoryName)
+                node:SetCollapsed(elementData.collapsed)
+                button:SetCollapseState(elementData.collapsed)
 
                 button:SetScript("OnClick", function(button, buttonName)
                     node:ToggleCollapsed()
