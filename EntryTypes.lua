@@ -187,6 +187,17 @@ function PKT.Item:Untrack()
     PKT.trackedItem = nil
 end
 
+---@return string
+function PKT.Item:GetSearchText()
+    local searchText = self:GetName()
+
+    if self.waypoint then
+        searchText = searchText .. ' ' .. C_Map.GetMapInfo(self.waypoint.map).name
+    end
+
+    return string.lower(searchText)
+end
+
 ---@return boolean
 function PKT.Item:IsHighlighted()
     return PKT.trackedItem == self
@@ -507,7 +518,6 @@ function PKT.Profession:GetSkillLevel()
 end
 
 function PKT.Profession:CalculateRemainingKps()
-    -- TODO: Display these at the top of the frame
     local weekly, unique, catchUp = 0, 0, 0
     for _, item in pairs(self.entries) do
         local remaining = item:GetRemainingKnowledgePoints()
@@ -580,8 +590,8 @@ function PKT.CreateKnowledgeDataProvider(professionInfo, searchText)
 
     for _, source in ipairs(profession:GetAvailableItems()) do
         local category = source:GetState()
-        local name = string.lower(source:GetName())
-        if (searching and string.find(name, searchText)) or not searching then
+        local sourceSearchText = source:GetSearchText()
+        if (searching and string.find(sourceSearchText, searchText)) or not searching then
             categories[category]:Insert(source)
         end
     end
