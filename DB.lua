@@ -81,7 +81,6 @@ local db = {
               :AddEntry(PKT.WeeklyTreasure:New{questId={83259}, itemId=225230, kp=1}) -- Crystalline Repository
               :AddEntry(PKT.DarkmoonQuest:New{questId={29510}, waypoint={map=407, x=0.5316, y=0.7587}, kp=3}) -- DMF Putting Trash to Good Use
               :AddEntry(PKT.CatchUp:New{questId={}, itemId=227662, catchUpCurrencyId=3059, atlasIcon="lootroll-toast-icon-disenchant-up", unlockRequirements={PKT.questIdIdx[83258], PKT.questIdIdx[83259], PKT.questIdIdx[84084],PKT.questIdIdx[84290], PKT.questIdIdx[84295]}, kp=1}) -- Catch up mechanic
-              :AddEntry(PKT.UniqueBook:New{ questId={87265}, itemId=235863, waypoint={map=2472, x=0.4060, y=0.2920}, kp=10, spell=1218651, renown={majorFactionId=2658, levelRequired=12}}) -- Ethereal Tome of Enchanting Knowledge
 ,
     --endregion
 
@@ -108,7 +107,6 @@ local db = {
               :AddEntry(PKT.WeeklyTreasure:New{questId={83261}, itemId=225229, kp=1}) -- Earthen Induction Coil
               :AddEntry(PKT.DarkmoonQuest:New{questId={29511}, waypoint={map=407, x=0.4925, y=0.6078}, kp=3}) -- DMF Talkin' Tonks
               :AddEntry(PKT.CatchUp:New{questId={}, itemId=228730, atlasIcon="Professions-Crafting-Orders-Icon", unlockRequirements={PKT.questIdIdx[83260], PKT.questIdIdx[83261], PKT.questIdIdx[84128]}, kp=1, text=PROFESSIONS_CRAFTING_ORDERS_PAGE_NAME:format(PROFESSIONS_CRAFTER_ORDER_TAB_NPC)}) -- Catch up mechanic
-              :AddEntry(PKT.UniqueBook:New{ questId={87264}, itemId=235862, waypoint={map=2472, x=0.4060, y=0.2920}, kp=10, spell=1218650, renown={majorFactionId=2658, levelRequired=12}}) -- Ethereal Tome of Engineering Knowledge
 ,
     --endregion
 
@@ -135,7 +133,6 @@ local db = {
               :AddEntry(PKT.WeeklyTreasure:New {questId={81421}, itemId=224265, kp=4, atlasIcon="Professions_Tracking_Herb", text=PKT.L.DESCRIPTION.LARGE_GATHERING_YIELD[Enum.Profession.Herbalism]}) -- "Deepgrove Rose"
               :AddEntry(PKT.DarkmoonQuest:New{questId={29514}, waypoint={map=407, x=0.5500, y=0.7076}, kp=3}) -- DMF Herbs for Healing
               :AddEntry(PKT.CatchUp:New{questId={}, itemId=224835, catchUpCurrencyId=3061, unlockRequirements={PKT.questIdIdx[81416], PKT.questIdIdx[81421], PKT.questIdIdx[82970]}, atlasIcon="Professions_Tracking_Herb", kp=1}) -- Catch up mechanic
-              :AddEntry(PKT.UniqueBook:New{ questId={87263}, itemId=235861, waypoint={map=2472, x=0.4060, y=0.2920}, kp=10, spell=1218649, renown={majorFactionId=2658, levelRequired=12}}) -- Ethereal Tome of Herbalism Knowledge
 ,
     --endregion
 
@@ -161,7 +158,6 @@ local db = {
               :AddEntry(PKT.WeeklyTreasure:New{questId={83264}, itemId=225226, kp=2}) -- Striated Inkstone
               :AddEntry(PKT.DarkmoonQuest:New{questId={29515}, waypoint={map=407, x=0.5325, y=0.7584}, itemRequirements={{id=39354, quantity=5}}, kp=3}) -- DMF Writing the Future
               :AddEntry(PKT.CatchUp:New{questId={}, itemId=228732, atlasIcon="Professions-Crafting-Orders-Icon", unlockRequirements={PKT.questIdIdx[83262], PKT.questIdIdx[83264], PKT.questIdIdx[84129]}, kp=1, text=PROFESSIONS_CRAFTING_ORDERS_PAGE_NAME:format(PROFESSIONS_CRAFTER_ORDER_TAB_NPC)}) -- Catch up mechanic
-              :AddEntry(PKT.UniqueBook:New{ questId={87262}, itemId=235860, waypoint={map=2472, x=0.4060, y=0.2920}, kp=10, spell=1218648, renown={majorFactionId=2658, levelRequired=12}}) -- Ethereal Tome of Inscription Knowledge
 ,
     --endregion
 
@@ -188,7 +184,6 @@ local db = {
               :AddEntry(PKT.WeeklyTreasure:New{questId={83266}, itemId=225225, kp=2}) -- "Deepstone Fragment" Deep-Lost Satchel
               :AddEntry(PKT.DarkmoonQuest:New{questId={29516}, waypoint={map=407, x=0.5500, y=0.7079}, kp=3}) -- DMF Keeping the Faire Sparkling
               :AddEntry(PKT.CatchUp:New{questId={}, itemId=228734, atlasIcon="Professions-Crafting-Orders-Icon", unlockRequirements={PKT.questIdIdx[83265], PKT.questIdIdx[83266], PKT.questIdIdx[84130]}, kp=1, text=PROFESSIONS_CRAFTING_ORDERS_PAGE_NAME:format(PROFESSIONS_CRAFTER_ORDER_TAB_NPC)}) -- Catch up mechanic
-              :AddEntry(PKT.UniqueBook:New{ questId={87261}, itemId=235859, waypoint={map=2472, x=0.4060, y=0.2920}, kp=10, spell=1218647, renown={majorFactionId=2658, levelRequired=12}}) -- Ethereal Tome of Jewelcrafting Knowledge
 ,
     --endregion
 
@@ -215,7 +210,6 @@ local db = {
               :AddEntry(PKT.WeeklyTreasure:New{questId={83268}, itemId=225222, kp=1}) -- Stone-Leather Swatch
               :AddEntry(PKT.DarkmoonQuest:New{questId={29517}, waypoint={map=407, x=0.4925, y=0.6079}, itemRequirements={{id=6529, quantity=10},{id=2320, quantity=5},{id=6260, quantity=5}}, kp=3}) -- DMF Eyes on the Prizes
               :AddEntry(PKT.CatchUp:New{questId={}, itemId=228736, atlasIcon="Professions-Crafting-Orders-Icon", unlockRequirements={PKT.questIdIdx[83267], PKT.questIdIdx[83268], PKT.questIdIdx[84131]}, kp=1, text=PROFESSIONS_CRAFTING_ORDERS_PAGE_NAME:format(PROFESSIONS_CRAFTER_ORDER_TAB_NPC)}) -- Catch up mechanic
-              :AddEntry(PKT.UniqueBook:New{ questId={87260}, itemId=235858, waypoint={map=2472, x=0.4060, y=0.2920}, kp=10, spell=1218646, renown={majorFactionId=2658, levelRequired=12}}) -- Ethereal Tome of Leatherworking Knowledge
 ,
     --endregion
 
@@ -242,7 +236,6 @@ local db = {
               :AddEntry(PKT.WeeklyTreasure:New {questId={83049}, itemId=224584, kp=3, atlasIcon="Professions_Tracking_Ore", text=PKT.L.DESCRIPTION.LARGE_GATHERING_YIELD[Enum.Profession.Mining]}) -- "Slab of Slate"
               :AddEntry(PKT.DarkmoonQuest:New{questId={29518}, waypoint={map=407, x=0.4930, y=0.6087}, kp=3}) -- DMF Rearm, Reuse, Recycle
               :AddEntry(PKT.CatchUp:New{questId={}, itemId=224838, catchUpCurrencyId=3065, unlockRequirements={PKT.questIdIdx[83049], PKT.questIdIdx[83050], PKT.questIdIdx[83104]}, atlasIcon="Professions_Tracking_Ore", kp=1}) -- Catch up mechanic
-              :AddEntry(PKT.UniqueBook:New{ questId={87259}, itemId=235857, waypoint={map=2472, x=0.4060, y=0.2920}, kp=10, spell=1218645, renown={majorFactionId=2658, levelRequired=12}}) -- Ethereal Tome of Mining Knowledge
 ,
     --endregion
 
@@ -269,7 +262,6 @@ local db = {
               :AddEntry(PKT.WeeklyTreasure:New{questId={81464}, itemId=224781, kp=2, atlasIcon="worldquest-icon-skinning", text=PKT.L.DESCRIPTION.LARGE_GATHERING_YIELD[Enum.Profession.Skinning]}) -- "Toughened Tempest Pelt"
               :AddEntry(PKT.DarkmoonQuest:New{questId={29519}, waypoint={map=407, x=0.5501, y=0.7078}, kp=3}) -- DMF Tan My Hide
               :AddEntry(PKT.CatchUp:New{questId={}, itemId=224782, catchUpCurrencyId=3066, unlockRequirements={PKT.questIdIdx[81464], PKT.questIdIdx[81459], PKT.questIdIdx[83097]}, atlasIcon="worldquest-icon-skinning", kp=1}) -- Catch up mechanic
-              :AddEntry(PKT.UniqueBook:New{ questId={87258}, itemId=235856, waypoint={map=2472, x=0.4060, y=0.2920}, kp=10, spell=1218644, renown={majorFactionId=2658, levelRequired=12}}) -- Ethereal Tome of Skinning Knowledge
 ,
     --endregion
 
@@ -296,7 +288,6 @@ local db = {
               :AddEntry(PKT.WeeklyTreasure:New{questId={83270}, itemId=225220, kp=1}) -- "Machine Speaker's"
               :AddEntry(PKT.DarkmoonQuest:New {questId={29520}, waypoint={map=407, x=0.5555, y=0.5500}, itemRequirements={{id=2320, quantity=1}, {id=2604, quantity=1}, {id=6260, quantity=1}}, kp=3}) -- Banners, Banners Everywhere!
               :AddEntry(PKT.CatchUp:New{questId={}, itemId=228738, atlasIcon="Professions-Crafting-Orders-Icon", unlockRequirements={PKT.questIdIdx[83269], PKT.questIdIdx[83270], PKT.questIdIdx[84132]}, kp=1, text=PROFESSIONS_CRAFTING_ORDERS_PAGE_NAME:format(PROFESSIONS_CRAFTER_ORDER_TAB_NPC)}) -- Catch up mechanic
-              :AddEntry(PKT.UniqueBook:New{ questId={87257}, itemId=235855, waypoint={map=2472, x=0.4060, y=0.2920}, kp=10, spell=1218643, renown={majorFactionId=2658, levelRequired=12}}) -- Ethereal Tome of Tailoring Knowledge
     --endregion
 --endregion
 }
