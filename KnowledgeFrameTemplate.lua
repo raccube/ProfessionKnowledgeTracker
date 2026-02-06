@@ -16,8 +16,11 @@ function KnowledgePageMixin:Refresh(professionInfo)
 
     self.DetailsForm.Background:SetAtlas(Professions.GetProfessionBackgroundAtlas(professionInfo), TextureKitConstants.IgnoreAtlasSize)
 
-    PKT.dataProvider = PKT.CreateKnowledgeDataProvider(professionInfo)
-    self.SourceList.ScrollBox:SetDataProvider(PKT.dataProvider)
+    local dataProvider = PKT.CreateKnowledgeDataProvider(professionInfo, self.SourceList.SearchBox:GetText())
+    if dataProvider then
+        PKT.dataProvider = dataProvider
+        self.SourceList.ScrollBox:SetDataProvider(dataProvider)
+    end
 
     self.WaypointButton:SetPoint("BOTTOMRIGHT", -9, 7)
     self.WaypointButton:SetText(PKT.L.WAYPOINT_BUTTON_INACTIVE_TEXT)

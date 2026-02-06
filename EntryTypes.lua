@@ -560,10 +560,17 @@ function PKT.Profession:CalculateSpendableKps()
 end
 
 ---@param professionInfo ProfessionInfo
-function PKT.CreateKnowledgeDataProvider(professionInfo)
+function PKT.CreateKnowledgeDataProvider(professionInfo, searchText)
     local profession = PKT.DB[professionInfo.professionID]
+
+    if not profession then
+        return nil
+    end
+
     local dataProvider = CreateTreeDataProvider()
     local root = dataProvider:GetRootNode()
+    local searching = searchText ~= ""
+    searchText = string.lower(searchText)
 
     local categories = {
         [PKT.EntryState.Available] = root:Insert({ categoryName = PKT.L.CATEGORY.Available, collapsed = false }),
@@ -573,7 +580,10 @@ function PKT.CreateKnowledgeDataProvider(professionInfo)
 
     for _, source in ipairs(profession:GetAvailableItems()) do
         local category = source:GetState()
-        categories[category]:Insert(source)
+        local name = string.lower(source:GetName())
+        if (searching and string.find(name, searchText)) or not searching then
+            categories[category]:Insert(source)
+        end
     end
 
     return dataProvider

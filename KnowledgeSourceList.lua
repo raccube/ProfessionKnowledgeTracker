@@ -176,3 +176,14 @@ function KnowledgeSourceListCategoryMixin:SetCollapseState(collapsed)
     self.CollapseIcon:SetAtlas(atlas, TextureKitConstants.UseAtlasSize)
     self.CollapseIconAlphaAdd:SetAtlas(atlas, TextureKitConstants.UseAtlasSize)
 end
+
+function KnowledgeSourceList_OnSearchTextChanged(sender)
+    SearchBoxTemplate_OnTextChanged(sender)
+
+    local profession = C_TradeSkillUI.GetChildProfessionInfo()
+    local dataProvider = PKT.CreateKnowledgeDataProvider(profession, sender:GetText())
+    if dataProvider then
+        PKT.dataProvider = dataProvider
+        PKTFrame.SourceList.ScrollBox:SetDataProvider(PKT.dataProvider)
+    end
+end

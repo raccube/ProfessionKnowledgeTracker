@@ -32,6 +32,9 @@
 					<Anchor point="RIGHT" relativeKey="$parent.FilterDropdown" relativePoint="LEFT" x="-4" y="0"/>
 					<Anchor point="TOPLEFT" x="13" y="-8"/>
 				</Anchors>
+				<Scripts>
+					<OnTextChanged function="KnowledgeSourceList_OnSearchTextChanged"/>
+				</Scripts>
 			</EditBox>
 
 			<Frame parentKey="ScrollBox" inherits="WowScrollBoxList">
