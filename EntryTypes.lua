@@ -55,7 +55,7 @@ function PKT.Item:GetName()
         return self.name
     end
 
-    self.name = self.item:GetItemName() or self.text
+    self.name = self.item:GetItemName()
 
     return self.name or ""
 end
@@ -189,7 +189,7 @@ end
 
 ---@return string
 function PKT.Item:GetSearchText()
-    local searchText = self:GetName()
+    local searchText = self:GetName() or ''
 
     if self.waypoint then
         searchText = searchText .. ' ' .. C_Map.GetMapInfo(self.waypoint.map).name
@@ -229,7 +229,7 @@ function PKT.Item:GetFullDescription()
     if turnInCount == 1 then
         kpCount = PKT.L.DESCRIPTION.KP_COUNT:format(self:GetRemainingKnowledgePoints(), currency)
     elseif turnInCount > 1 then
-        kpCount = PKT.L.DESCRIPTION.KP_COUNT_MULTIPLE:format(self:GetRemainingKnowledgePoints(), currency, turnInCount)
+        kpCount = PKT.L.DESCRIPTION.KP_COUNT_MULTIPLE:format(turnInCount * self.kp, currency, turnInCount)
     end
 
     return string.format("%s%s\n%s - x:%.2f y:%.2f\n%s", renownText, description, mapInfo.name, self.waypoint.x * 100, self.waypoint.y * 100, kpCount)
