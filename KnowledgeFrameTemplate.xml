@@ -55,7 +55,7 @@
                                 <Anchor point="LEFT" relativeKey="$parent.SourceIcon" relativePoint="TOPLEFT" x="90" y="-50"/>
                             </Anchors>
                         </FontString>
-                        <FontString parentKey="DetailText" inherits="GameFontHighlightSmall2" justifyH="LEFT" justifyV="TOP">
+                        <FontString parentKey="DetailText" inherits="GameFontHighlightMed2" justifyH="LEFT" justifyV="TOP">
                             <Size x="600" y="0"/>
                             <Anchors>
                                 <Anchor point="TOPLEFT" relativeKey="$parent.SourceIcon" relativePoint="TOPLEFT" x="30" y="-100"/>
