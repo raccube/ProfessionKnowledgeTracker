@@ -40,7 +40,7 @@ local L = {
             TREATISE = "Obtained through Inscription work orders",
             TRAINER_QUEST = "Obtained through a quest from your profession trainer",
             KP_COUNT = "Completing this will award you %d %s.",
-            KP_COUNT_MULTIPLE = "You can complete this %3$d times, for a total of %1$d %2%s.",
+            KP_COUNT_MULTIPLE = "You can complete this %3$d times, for a total of %1$d %2$s.",
         },
         COUNTERS = {
             UNIQUE = "Unique: %d",
