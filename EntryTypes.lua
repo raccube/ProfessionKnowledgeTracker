@@ -203,9 +203,9 @@ function PKT.Item:IsHighlighted()
     return PKT.trackedItem == self
 end
 
----@return string
+---@return string|nil
 function PKT.Item:GetDescription()
-    return self.text or self.name or PKT.L.UNKNOWN
+    return self.text
 end
 
 ---@return string
@@ -220,7 +220,7 @@ function PKT.Item:GetFullDescription()
             renownText = renownInfo.name .. ": \124cffFF0000" .. tostring(renownInfo.renownLevel) .. "\124r/" .. tostring(self.renown.levelRequired) .. "\n"
         end
     end
-    local name = self:GetDescription()
+    local description = self:GetDescription() or ""
     local mapInfo = C_Map.GetMapInfo(self.waypoint.map)
     local turnInCount = self:GetRemainingTurnInCount()
     local kpCount = ""
@@ -232,7 +232,7 @@ function PKT.Item:GetFullDescription()
         kpCount = PKT.L.DESCRIPTION.KP_COUNT_MULTIPLE:format(self:GetRemainingKnowledgePoints(), currency, turnInCount)
     end
 
-    return string.format("%s%s\n%s - x:%.2f y:%.2f\n%s", renownText, name, mapInfo.name, self.waypoint.x * 100, self.waypoint.y * 100, kpCount)
+    return string.format("%s%s\n%s - x:%.2f y:%.2f\n%s", renownText, description, mapInfo.name, self.waypoint.x * 100, self.waypoint.y * 100, kpCount)
 end
 
 ---@class PKT.CatchUp
