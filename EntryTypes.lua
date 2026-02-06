@@ -77,7 +77,7 @@ function PKT.Item:GetCategoryIcon()
 end
 
 ---@return number
-function PKT.Item:GetRemainingKnowledgePoints()
+function PKT.Item:GetRemainingTurnInCount()
     local questCount = 0
 
     for _, questId in ipairs(self.questId) do
@@ -86,7 +86,12 @@ function PKT.Item:GetRemainingKnowledgePoints()
         end
     end
 
-    return questCount * self.kp
+    return questCount
+end
+
+---@return number
+function PKT.Item:GetRemainingKnowledgePoints()
+    return self:GetRemainingTurnInCount() * self.kp
 end
 
 ---@return boolean
@@ -206,8 +211,16 @@ function PKT.Item:GetFullDescription()
     end
     local name = self:GetDescription()
     local mapInfo = C_Map.GetMapInfo(self.waypoint.map)
+    local turnInCount = self:GetRemainingTurnInCount()
+    local kpCount = ""
+
     local currency = C_CurrencyInfo.GetCurrencyLink(self.profession.knowledgeCurrencyId, self:GetRemainingKnowledgePoints())
-    local kpCount = PKT.L.DESCRIPTION.KP_COUNT:format(self:GetRemainingKnowledgePoints(), currency)
+    if turnInCount == 1 then
+        kpCount = PKT.L.DESCRIPTION.KP_COUNT:format(self:GetRemainingKnowledgePoints(), currency)
+    elseif turnInCount > 1 then
+        kpCount = PKT.L.DESCRIPTION.KP_COUNT_MULTIPLE:format(self:GetRemainingKnowledgePoints(), currency, turnInCount)
+    end
+
     return string.format("%s%s\n%s - x:%.2f y:%.2f\n%s", renownText, name, mapInfo.name, self.waypoint.x * 100, self.waypoint.y * 100, kpCount)
 end
 

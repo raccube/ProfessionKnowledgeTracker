@@ -40,6 +40,7 @@ local L = {
             TREATISE = "Obtained through Inscription work orders",
             TRAINER_QUEST = "Obtained through a quest from your profession trainer",
             KP_COUNT = "Completing this will award you %d %s.",
+            KP_COUNT_MULTIPLE = "You can complete this %3$d times, for a total of %1$d %2%s.",
         },
         COUNTERS = {
             UNIQUE = "Unique: %d",
@@ -90,6 +91,7 @@ local L = {
             TREATISE = "Erhalten durch Inschriftenkunde-Handwerksaufträge",
             TRAINER_QUEST = "Erhalten durch eine Quest von deinem Berufsausbilder",
             KP_COUNT = "Wenn Sie dies abschließen, erhalten Sie %d %s.",
+            KP_COUNT_MULTIPLE = "Sie können dies noch %3$d-mal abschließen.\nWenn Sie es schaffst, erhälten Sie insgesamt %1$d %2$s",
         },
         COUNTERS = {
             UNIQUE = "Einzigartig: %d",
