@@ -125,7 +125,7 @@ KnowledgeSourceListSourceMixin = {}
 function KnowledgeSourceListSourceMixin:Init(node)
     ---@type PKT.Item elementData
     local elementData = node:GetData()
-    self.Label:SetText(elementData:GetCategoryIcon() .. " " .. elementData:GetName() or "")
+    self.Label:SetText(elementData:GetCategoryIcon() .. " " .. (elementData:GetName() or ""))
 end
 
 function KnowledgeSourceListSourceMixin:OnLoad()
